@@ -1,29 +1,7 @@
+const Util = {}
 
-const express = require("express")
-const expressLayouts = require("express-ejs-layouts")
-const env = require("dotenv").config()
-const app = express()
-const static = require("./routes/static")
-
-app.set("view engine", "ejs")
-app.use(expressLayouts)
-app.set("layout", "./layouts/layout")
-app.use(static)
-
-const port = process.env.PORT
-const host = process.env.HOST
-
-app.listen(port, () => {
-  console.log(`app listening on ${host}:${port}`)
-})
-
-app.get("/", function(req, res){
-  const nav = buildNav()
-  res.render("index", {title: "Home", nav})
-})
-
-function buildNav() {
-  const data = [
+Util.getNav = async function () {
+  let data = [
     { classification_id: 1, classification_name: "Custom" },
     { classification_id: 2, classification_name: "Sedan" },
     { classification_id: 3, classification_name: "SUV" },
@@ -46,3 +24,5 @@ function buildNav() {
   list += "</ul>"
   return list
 }
+
+module.exports = Util

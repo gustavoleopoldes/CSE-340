@@ -1,6 +1,435 @@
-/******* Change Box Model ***************/
-*,
 *:before,
 *:after {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-image: url('/images/site/checkerboard.jpg');
+  background-repeat: repeat;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+#wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-left: 10px solid #000;
+  border-right: 10px solid #000;
+  min-height: 100vh;
+  position: relative;
+}
+
+#wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #00bcd4;
+}
+
+#wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #00bcd4;
+}
+
+#top-header {
+  background-color: #fff;
+  color: #000;
+  padding: 10px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.siteName a {
+  color: #000;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.siteName a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+#tools a {
+  color: #000;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#tools a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+#navigation {
+  background-color: #2d3436;
+  padding: 0;
+  margin: 0 20px;
+  border-bottom: 5px solid #00bcd4;
+}
+
+#navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#navigation ul li {
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+#navigation ul li a {
+  display: block;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  background-color: #2d3436;
+}
+
+#navigation ul li a:hover {
+  background-color: #444;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px 25px;
+  background-color: #fff;
+}
+
+main > h1 {
+  font-size: 1.8rem;
+  color: #000;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+#hero-section {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+#hero-card {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+}
+
+#hero-card > img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 75%;
+  z-index: 1;
+}
+
+#hero-text {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: #00bcd4;
+  padding: 15px 25px 20px 15px;
+  z-index: 10;
+}
+
+#hero-text h2 {
+  color: #00008b;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#hero-text ul {
+  margin: 0 0 15px 0;
+  padding: 0;
+  list-style: none;
+}
+
+#hero-text ul li {
+  color: #00008b;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.own-today {
+  display: inline-block;
+  background-color: #00bcd4;
+  color: #cc0000;
+  padding: 12px 35px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+}
+
+.own-today:hover {
+  background-color: #00a5a5;
+  text-decoration: none;
+}
+
+#home-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+#upgrades h2 {
+  font-size: 1.3rem;
+  color: #000;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.upgrade-item {
+  text-align: center;
+}
+
+.upgrade-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.upgrade-item .img-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00bcd4;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  min-height: 120px;
+}
+
+.upgrade-item img {
+  max-width: 90px;
+  max-height: 90px;
+  object-fit: contain;
+}
+
+.upgrade-item .text-link {
+  display: block;
+  margin-top: 8px;
+  color: #0066cc;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+.upgrade-item a:hover .text-link {
+  color: #004499;
+}
+
+#reviews h2 {
+  font-size: 1.3rem;
+  color: #000;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+#reviews > ul {
+  list-style: disc;
+  padding-left: 25px;
+  margin: 0;
+}
+
+#reviews > ul li {
+  font-size: 1.1rem;
+  color: #000;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+#bottom-footer {
+  background-color: #fff;
+  color: #000;
+  text-align: left;
+  padding: 20px 25px;
+}
+
+#bottom-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 600px) {
+  #wrapper {
+    border-left: none;
+    border-right: none;
+    max-width: 100%;
+  }
+
+  #wrapper::before,
+  #wrapper::after {
+    display: none;
+  }
+
+  #top-header {
+    padding: 8px 15px;
+  }
+
+  .siteName a {
+    font-size: 1.5rem;
+  }
+
+  #navigation {
+    margin: 0 10px;
+  }
+
+  #navigation ul li a {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  main > h1 {
+    font-size: 1.4rem;
+  }
+
+  #hero-card {
+    min-height: auto;
+  }
+
+  #hero-card > img {
+    position: relative;
+    max-width: 100%;
+    right: auto;
+  }
+
+  #hero-text {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+
+  #hero-text h2 {
+    font-size: 1.2rem;
+  }
+
+  #hero-text ul li {
+    font-size: 0.95rem;
+  }
+
+  .own-today {
+    font-size: 0.95rem;
+    padding: 10px 25px;
+  }
+
+  #home-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #reviews {
+    order: 1;
+  }
+
+  #upgrades {
+    order: 2;
+  }
+
+  #upgrades h2,
+  #reviews h2 {
+    font-size: 1.15rem;
+  }
+
+  #reviews > ul li {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .upgrade-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .upgrade-item .img-box {
+    padding: 15px;
+    min-height: 100px;
+  }
+
+  .upgrade-item img {
+    max-width: 70px;
+    max-height: 70px;
+  }
+
+  .upgrade-item .text-link {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  #wrapper {
+    max-width: 900px;
+  }
+
+  #home-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+  }
+
+  #upgrades {
+    order: 1;
+  }
+
+  #reviews {
+    order: 2;
+  }
 }
